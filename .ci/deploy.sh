@@ -4,7 +4,7 @@ echo "Deployment Started"
 
 git config --global user.email $EMAIL
 git config --global user.name $USERNAME
-git remote set-url origin https://$DEPLOY_TOKEN@github.com/Coders-Asylum/Response
+git remote set-url origin https://$DEPLOY_TOKEN@github.com/Coders-Asylum/Reaction
 git fetch --all
 
 # Get the current branch
