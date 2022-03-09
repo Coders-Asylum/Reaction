@@ -15,6 +15,14 @@ jobs:
         
       - name: Checkout Repository
         uses: actions/checkout@v2
+        
+      - name: install dependencies
+        run: |
+          cd ./employee-info
+          npm install
+          cd ..
+          cd ./sample
+          npm install
       
       - name: Build Apps
         run: |
