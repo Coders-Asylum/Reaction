@@ -54,7 +54,7 @@ do
             cd ..
 
             # deletes the build folder
-            rm -r ./semployee-info/build/
+            rm -r ./employee-info/build/
             rm -r ./sample/build/
 
             # check if changes are present in the current working branch
