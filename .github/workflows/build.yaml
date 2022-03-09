@@ -1,0 +1,32 @@
+# This will be changed to a singular triggering the builds and commiting the files.
+name: Build and Deploy
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+  
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.0.0
+        
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      
+      - name: Build Apps
+        run: |
+          cd ./employee-info
+          npm run build
+          cd ..
+          cd ./sample
+          cd run build
+      - name: Deploy Apps
+        env:
+           DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+           USERNAME: ${{ secrets.USERNAME }}
+           EMAIL: ${{ secrets.EMAIL }}
+        run: chmod +x ./.ci/deploy.sh ; sh ./.ci/deploy.sh
+          
