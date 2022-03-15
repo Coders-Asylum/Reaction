@@ -10,7 +10,6 @@ import '../App.css';
 
 class InputScreen extends React.Component {
     emps = [];
-    
     constructor(props) {
         super(props);
         this.e = new EmployeeData();
