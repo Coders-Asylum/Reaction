@@ -8,7 +8,7 @@ class InputBox extends React.Component {
         if (parseInt(value) > 0 && parseInt(value) < 10) {
             this.props.onChange(parseInt(value) - 1);
             return '';
-        } else if (value == '') {
+        } else if (value === '') {
             this.props.onChange(- 1);
             return '';
         } else {
