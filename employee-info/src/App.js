@@ -3,25 +3,24 @@ import { ThemeProvider, initializeIcons } from '@fluentui/react';
 import { appTheme } from './components/theme';
 import { Navbar as ComponentNavBar } from './components/navBar';
 import { EmployeeCard } from './components/employeeCard'
-import { http_request } from './backend/parse';
+import { Employee, EmployeeData } from './backend/json';
+import { InputBox } from './components/input';
+import { InputScreen } from './screens/inputScreen';
 import './App.css';
 
 
 function App() {
   initializeIcons();
   
-  const http = new http_request();
-   http.get("https://services.odata.org/V4/Northwind/Northwind.svc/Employees").then(function(res){
-     console.log(res.data["value"]);
-    });
+    const empData = new EmployeeData();
+    const employees = empData.allEmployees();
+    console.log(employees);
 
 
   return (
     <ThemeProvider applyTo='body' theme={appTheme}>
       <ComponentNavBar />
-      <div class='AppBody'>
-        <EmployeeCard />
-      </div>
+       < InputScreen />
     </ThemeProvider>
   );
 }

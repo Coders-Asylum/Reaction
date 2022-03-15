@@ -40,14 +40,12 @@
 .EmployeeCard{
     margin-left: auto;
     margin-right: auto;
-    top:50%;
-    height:300px;
+    height:max-content;
     width:500px;
     box-shadow: 2px 2px 4px 1px rgb(29, 29, 29);
     border-radius: 8px;
     background-color: rgb(58, 58, 58);
-    -ms-transform: translateY(50%);
-    transform: translateY(50%);
+    order: -1;
 
 }
 
@@ -62,17 +60,27 @@
 .EmployeeCard #title{
     margin-left: 8px;
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 12px;
     text-align: left;
     color: rgb(189, 189, 189);
 
 }
 
+.EmployeeCard #bio{
+    margin-left: 8px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    text-align: left;
+    color: rgb(236, 236, 236);
+
+}
+
+
 .EmployeeCard #contactinfo{
     margin-left: 8px;
     margin-bottom: 8px;
     margin-top:8px;
-    font-size: 22px;
+    font-size: 16px;
     text-align: left;
 }
 
@@ -80,9 +88,15 @@
     margin-left: 8px;
     margin-bottom: 8px;
     margin-top:8px;
-    font-size: 22px;
+    font-size: 16px;
     text-align: left;
     color:rgb(255, 255, 255)
+}
+
+.EmployeeCard #contactInfo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .EmployeeCard hr{
@@ -92,3 +106,13 @@
     margin-left: 8px;
     border-radius: 10px;
 }
+
+
+.InputBox{
+    height: 60px;
+    width: 200px;
+    padding: 8px;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}   

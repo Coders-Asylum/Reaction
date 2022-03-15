@@ -44,16 +44,28 @@ function EmployeeAddress(props) {
     );
 }
 
+function EmployeeBio(props){
+    return(
+        <div id='bio'>
+            <p>{props.bio}</p>
+        </div>
+    );
+}
+
 class EmployeeCard extends React.Component {
 
     render() {
+        const emp = this.props.employeeData;
         return (
-            <div class='EmployeeCard'>
-                <EmployeeName name="Ms. Davolio Nancy" />
-                <EmployeeTitle title="Sales Representative" />
+            <div class='EmployeeCard' style={{ display: this.props.display ? "block" : "none" }} >
+                <EmployeeName name={emp.name} />
+                <EmployeeTitle title={emp.title} />
+                <EmployeeBio bio={emp.bio}/>
                 <hr></hr>
-                <EmployeeContact phone='(206) 555-9857' />
-                <EmployeeAddress address='>507 - 20th Ave. E.Apt. 2A' city='Seattle' region='WA' postalCode='98122' country='USA'/>
+                <div id="contactInfo">
+                <EmployeeContact phone={emp.phone} />
+                <EmployeeAddress address={emp.address} city={emp.city} region={emp.region} postalCode={emp.postalCode} country={emp.country} />
+                </div>
             </div>
         );
     }

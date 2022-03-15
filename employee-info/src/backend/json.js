@@ -1,5 +1,4 @@
-import { toHaveFocus, toHaveStyle } from "@testing-library/jest-dom/dist/matchers";
-import { http_request, jsonParser } from "./parse";
+import { http_request } from "./parse";
 
 
 class Employee {
@@ -10,28 +9,27 @@ class Employee {
     address;
     city;
     region;
+    country;
+    bio;
     postalCode;
 
-    constructor({ name, titleOfCourtsey, title, phone, address, city, region, postalCode } = {}) {
-        this.name = name;
-        this.titleOfCourtsey = titleOfCourtsey;
+    constructor({ emp_name, title, phone, address, city, region, postalCode, country, bio } = {}) {
+        this.name = emp_name;
         this.title = title;
         this.phone = phone;
         this.address = address;
         this.city = city;
         this.region = region;
+        this.country = country;
+        this.bio = bio;
         this.postalCode = postalCode;
-
     }
-
-
-
 }
 
-class employeeData {
+class EmployeeData {
     http;
-    url = "https://services.odata.org/V2/Northwind/Northwind.svc/Employees"
-    emp_str='';
+    url = "https://services.odata.org/V4/Northwind/Northwind.svc/Employees"
+    _emps = []
 
     constructor() {
         this.http = new http_request();
@@ -39,26 +37,33 @@ class employeeData {
             if (res.status != 200) {
                 console.log(`Error Occurect while fetching employee data: ${res.status} ${res.statusText}`)
             } else {
-                this.emp_str = res.data;
+                res.data['value'].forEach((emp) => {
+                    this._emps.push(new Employee({
+                        emp_name: `${emp['TitleOfCourtesy']}${emp['FirstName']} ${emp['LastName']}`,
+                        title: emp['Title'],
+                        phone: emp['HomePhone'],
+                        address: emp['Address'],
+                        city: emp['City'],
+                        region: emp['Region'],
+                        country: emp['Country'],
+                        bio: emp['Notes'],
+                        postalCode:emp['PostalCode']
+                    }
+                    ))
+                });
             }
-
         }).catch((err) => console.log(`[E] Error occured while fetching data: ${err}`));
     }
-    first10employees() {
-        l = [];
-        const j = new jsonParser(this.emp_str);
 
-        for (let i=0;i<10;i++){
-        
-        }
 
-        return l;
+    allEmployees() {
+        return this._emps;
     }
 }
 
 
 
 
-export { Employee }
+export { Employee, EmployeeData }
 
 
