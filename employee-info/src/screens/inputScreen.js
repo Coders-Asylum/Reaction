@@ -14,11 +14,11 @@ class InputScreen extends React.Component {
         super(props);
         this.e = new EmployeeData();
         this.emps = this.e.allEmployees();
-        this.state = { employee: new Employee, display: false }
+        this.state = { employee: new Employee(), display: false };
     }
 
     onChange = (id) => {
-        if (id == -1) {
+        if (id === -1) {
             this.setState({ display: false });
         } else {
             this.setState({ employee: this.emps[id], display: true });

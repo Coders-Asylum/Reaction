@@ -16,12 +16,6 @@ function EmployeeTitle(props) {
     );
 }
 
-function EmployeeCountry(props) {
-    return (
-        <div id='addrressLine'>{props.country}</div>
-    );
-}
-
 function EmployeeContact(props) {
     return (
         <div id='contactinfo'>{props.phone}</div>

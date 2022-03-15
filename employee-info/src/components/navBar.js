@@ -8,7 +8,7 @@ import "../styles/component.css"
 function NavBarElement(props) {
     return (
         < div style={{ width: props.width + 'px', height: props.height + 'px' }} class="NavBarElement">
-            <div class="NavElement"><Icon iconName={props.navElement.icon} id="icon"/></div>
+            <div class="NavElement"><Icon iconName={props.navElement.icon} id="icon" /></div>
             <div class="NavElement">{props.navElement.name}</div>
         </div>
     );
@@ -41,9 +41,11 @@ class Navbar extends React.Component {
 
 
     render() {
-        return (<div class='NavBar' style={{ color: appTheme.palette.blue }}>
-            <h1 class="NavBarElement"> Employee Info </h1>
-            <NavBarElement width={170} height={45} navElement={this._navElements[2]} /> </div >
+        return (
+            <div class='NavBar' style={{ color: appTheme.palette.blue }}>
+                <h1 class="NavBarElement"> Employee Info </h1>
+                <NavBarElement width={170} height={45} navElement={this._navElements[2]} />
+            </div >
         );
     }
 }

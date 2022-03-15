@@ -34,7 +34,7 @@ class EmployeeData {
     constructor() {
         this.http = new http_request();
         this.http.get(this.url).then((res) => {
-            if (res.status != 200) {
+            if (res.status !== 200) {
                 console.log(`Error Occurect while fetching employee data: ${res.status} ${res.statusText}`)
             } else {
                 res.data['value'].forEach((emp) => {
