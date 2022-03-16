@@ -1,6 +1,6 @@
 import React from "react";
 import { EmployeeCard } from "../components/employeeCard";
-import { Employee, EmployeeData } from "../backend/json";
+import { Employee, EmployeeData } from "../backend/data_handler";
 import { InputBox } from '../components/input';
 import '../App.css';
 
